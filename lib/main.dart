@@ -17,46 +17,61 @@ class MyApp extends StatelessWidget {
           builder: (context, constraints) {
             final radius = constraints.maxWidth / 2;
             return Center(
-              child: Container(
-                width: constraints.maxWidth,
-                height: constraints.maxHeight,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  shape: BoxShape.circle,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(
-                      Icons.notifications_active_outlined,
-                      color: Colors.red,
-                      size: radius / 3,
+              child: Stack(
+                alignment: Alignment.center,
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    width: constraints.maxWidth - 20,
+                    height: constraints.maxHeight - 20,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 175, 0, 0),
+                      shape: BoxShape.circle,
                     ),
-                    Icon(
-                      Icons.warning_amber_rounded,
-                      color: Colors.red,
-                      size: radius / 2,
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(20),
+                    width: constraints.maxWidth - 40,
+                    height: constraints.maxHeight - 40,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      shape: BoxShape.circle,
                     ),
-                    SizedBox(height: radius / 10),
-                    Text(
-                      'Alerta de Pedestre! ATENÇÃO!',
-                      style: TextStyle(
-                        fontSize: radius / 10,
-                        color: Colors.white,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        Icons.notifications_active_outlined,
+                        color: Colors.red,
+                        size: radius / 3,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: radius / 10),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Cancelar'),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.red,
-                        onPrimary: Colors.white,
+                      Icon(
+                        Icons.warning_amber_rounded,
+                        color: Colors.red,
+                        size: radius / 2,
                       ),
-                    ),
-                  ],
-                ),
+                      SizedBox(height: radius / 10),
+                      Text(
+                        'Alerta de Pedestre! ATENÇÃO!',
+                        style: TextStyle(
+                          fontSize: radius / 10,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: radius / 10),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                        ),
+                        child: const Text('Cancelar'),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             );
           },
